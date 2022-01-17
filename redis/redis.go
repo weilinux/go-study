@@ -169,4 +169,11 @@ func main() {
 		panic(err)
 	}
 	fmt.Println(userRange)
+
+	//获取指定成员的分数
+	UserScore, err := rdb.ZScore(ctx, "userList3", "tom").Result()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("集合userList3 成员tom 的分数为：", UserScore)
 }
