@@ -18,6 +18,17 @@ func main() {
 		DB:       15,       // use default DB
 	})
 
+	//哨兵模式
+	/*rdb := redis.NewFailoverClient(&redis.FailoverOptions{
+		MasterName:    "master",
+		SentinelAddrs: []string{"x.x.x.x:26379", "xx.xx.xx.xx:26379", "xxx.xxx.xxx.xxx:26379"},
+	})*/
+
+	//集群模式
+	/*rdb := redis.NewClusterClient(&redis.ClusterOptions{
+		Addrs: []string{":7000", ":7001", ":7002", ":7003", ":7004", ":7005"},
+	})*/
+
 	//关闭redis
 	defer func(rdb *redis.Client) {
 		err := rdb.Close()
