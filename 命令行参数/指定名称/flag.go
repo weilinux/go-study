@@ -24,6 +24,6 @@ func main() {
 
 	//解析命令行参数写入注册的flag里
 	flag.Parse()
-	
+
 	fmt.Printf("用户名：%v 密码：%v 主机：%v 端口：%v \n", u, pwd, h, p)
 }
