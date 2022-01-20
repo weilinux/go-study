@@ -23,8 +23,8 @@ func (q *Queue) isFull() bool {
 	return q.Rear+1 == q.MaxLen
 }
 
-// Push 向队列中添加元素
-func (q *Queue) Push(data ...string) (err error) {
+// Set 向队列中添加元素
+func (q *Queue) Set(data ...string) (err error) {
 	//判断队列是否已满 （队列尾部元素索引和队列最大长度相等)
 	if q.isFull() {
 		return errors.New("queue full")
@@ -47,8 +47,8 @@ func (q *Queue) Push(data ...string) (err error) {
 	return
 }
 
-// Pull 从队列中取出元素
-func (q *Queue) Pull() (data string, err error) {
+// Get 从队列中取出元素
+func (q *Queue) Get() (data string, err error) {
 	//队列是否为空
 	if q.IsEmpty() {
 		return "", errors.New("queue empty")
@@ -63,8 +63,8 @@ func (q *Queue) Pull() (data string, err error) {
 	return
 }
 
-// Range 显示队列
-func (q *Queue) Range() {
+// Show 显示队列
+func (q *Queue) Show() {
 	fmt.Printf("队列最大长度：%d\n", q.MaxLen)
 
 	fmt.Printf("队列当前长度：%d\n", len(q.List))
@@ -89,16 +89,16 @@ func main() {
 	}
 
 	//插入数据
-	err := queue.Push("tom", "jerry", "jom", "lori")
+	err := queue.Set("tom", "jerry", "jom", "lori")
 	if err != nil {
 		return
 	}
 
 	//显示队列数据结构
-	queue.Range()
+	queue.Show()
 
 	//取出数据
-	data, err := queue.Pull()
+	data, err := queue.Get()
 	if err != nil {
 		fmt.Println(err)
 	} else {
