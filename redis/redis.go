@@ -18,6 +18,12 @@ func main() {
 		DB:       15,       // use default DB
 	})
 
+	//心跳
+	_, err := rdb.Ping(ctx).Result()
+	if err != nil {
+		panic(err)
+	}
+
 	//哨兵模式
 	/*rdb := redis.NewFailoverClient(&redis.FailoverOptions{
 		MasterName:    "master",
@@ -31,7 +37,7 @@ func main() {
 
 	//关闭redis
 	defer func(rdb *redis.Client) {
-		err := rdb.Close()
+		err = rdb.Close()
 		if err != nil {
 			panic(err)
 		}
@@ -39,7 +45,7 @@ func main() {
 
 	//TODO string操作
 	//过期时间(time.Second*100/100秒) 0：则为永久
-	err := rdb.Set(ctx, "name", "jerry", 0).Err()
+	err = rdb.Set(ctx, "name", "jerry", 0).Err()
 	if err != nil {
 		panic(err)
 	}
