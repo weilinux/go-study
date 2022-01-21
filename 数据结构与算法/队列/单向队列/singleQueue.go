@@ -9,8 +9,8 @@ import (
 type Queue struct {
 	MaxLen int      //队列最大长度
 	List   []string //模拟队列
-	Front  int      //指向队列头部
-	Rear   int      //指向队列尾部
+	Front  int      //指向队列头部 -1
+	Rear   int      //指向队列尾部 -1
 }
 
 // IsEmpty 判断队列是否为空（队列尾部元素索引和队列头部元素相等)
@@ -25,17 +25,14 @@ func (q *Queue) isFull() bool {
 
 // Set 向队列中添加元素
 func (q *Queue) Set(data ...string) (err error) {
-	//判断队列是否已满 （队列尾部元素索引和队列最大长度相等)
-	if q.isFull() {
-		return errors.New("queue full")
-	}
-
 	//往队列中添加元素
 	for _, val := range data {
 		//每次追加循环判断  当数量不足时直至添加满队列
 		if q.isFull() {
 			return errors.New("queue full")
 		} else {
+			//因为尾部初始是-1，所以先自增再赋值
+
 			//Rear后移
 			q.Rear++
 
@@ -91,7 +88,7 @@ func main() {
 	//插入数据
 	err := queue.Set("tom", "jerry", "jom", "lori")
 	if err != nil {
-		return
+		fmt.Println(err)
 	}
 
 	//显示队列数据结构
