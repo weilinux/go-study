@@ -45,18 +45,15 @@ func (q *Queue) Push(data ...interface{}) (err error) {
 		fmt.Println(val)
 		//每次追加循环判断  当数量不足时直至添加满队列
 		if q.isFull() {
-			fmt.Println(1)
 			return errors.New("queue full")
-		} else {
-			fmt.Println(2)
-			//因为尾部初始是0，所以先赋值再自增
-
-			//添加元素
-			q.List[q.Tail] = val
-
-			//Tail加1后%队列长度，如果等于零则队列尾部已加满，重新再加头部
-			q.Tail = (q.Tail + 1) % q.MaxLen
 		}
+		//因为尾部初始是0，所以先赋值再自增
+
+		//添加元素
+		q.List[q.Tail] = val
+
+		//Tail加1后%队列长度，如果等于零则队列尾部已加满，重新再加头部
+		q.Tail = (q.Tail + 1) % q.MaxLen
 	}
 
 	return
@@ -84,15 +81,16 @@ func (q *Queue) Range() {
 	size := q.Size()
 	if size == 0 {
 		fmt.Println("当前队列为空")
-	} else {
-		//保存一个变量来存储队列头部
-		tempHead := q.Head
-		for i := 0; i < size; i++ {
-			fmt.Printf("索引：%d\t值：%s\n", tempHead, q.List[tempHead])
+		return
+	}
 
-			//头部索引自增，如果等于零则队列尾部已取完，重新再取头部
-			tempHead = (tempHead + 1) % q.MaxLen
-		}
+	//保存一个变量来存储队列头部
+	tempHead := q.Head
+	for i := 0; i < size; i++ {
+		fmt.Printf("索引：%d\t值：%s\n", tempHead, q.List[tempHead])
+
+		//头部索引自增，如果等于零则队列尾部已取完，重新再取头部
+		tempHead = (tempHead + 1) % q.MaxLen
 	}
 }
 
