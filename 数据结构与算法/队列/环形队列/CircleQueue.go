@@ -7,10 +7,10 @@ import (
 
 // Queue 环形队列结构体
 type Queue struct {
-	MaxLen int      //队列最大长度
-	List   []string //模拟队列
-	Head   int      //指向队列头部 0
-	Tail   int      //指向队列尾部 0
+	MaxLen int           //队列最大长度
+	List   []interface{} //模拟队列
+	Head   int           //指向队列头部 0
+	Tail   int           //指向队列尾部 0
 }
 
 // IsEmpty 判断队列是否为空（队列尾部元素索引和队列头部元素相等)
@@ -29,7 +29,7 @@ func (q *Queue) Size() int {
 }
 
 // Push 向队列中添加元素
-func (q *Queue) Push(data ...string) (err error) {
+func (q *Queue) Push(data ...interface{}) (err error) {
 	//往队列中添加元素
 	for _, val := range data {
 		fmt.Println(val)
@@ -53,7 +53,7 @@ func (q *Queue) Push(data ...string) (err error) {
 }
 
 // Pop 从队列中取出元素
-func (q *Queue) Pop() (data string, err error) {
+func (q *Queue) Pop() (data interface{}, err error) {
 	//队列是否为空
 	if q.IsEmpty() {
 		return "", errors.New("queue empty")
@@ -90,7 +90,7 @@ func main() {
 	//环形队列结构体实例
 	queue := &Queue{
 		MaxLen: 7,
-		List:   make([]string, 7),
+		List:   make([]interface{}, 7),
 		Head:   0,
 		Tail:   0,
 	}
