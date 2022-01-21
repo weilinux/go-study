@@ -13,6 +13,16 @@ type Queue struct {
 	Tail   int           //指向队列尾部 0
 }
 
+// Method 设计接口：
+type Method interface {
+	IsEmpty() bool                        // 判断队列是否为空
+	isFull() bool                         // 判断队列是否已满
+	Size() int                            // 获取队列长度
+	Push(data ...interface{}) (err error) // 向队列中添加元素
+	Pop() (data interface{}, err error)   // 从队列中取出元素
+	Range()                               // 显示队列
+}
+
 // IsEmpty 判断队列是否为空（队列尾部元素索引和队列头部元素相等)
 func (q *Queue) IsEmpty() bool {
 	return q.Tail == q.Head
@@ -95,17 +105,20 @@ func main() {
 		Tail:   0,
 	}
 
+	//实现接口
+	var m Method = queue
+
 	//插入数据
-	err := queue.Push("tom", "jerry", "jom", "lori", "jack", "angus")
+	err := m.Push("tom", "jerry", "jom", "lori", "jack", "angus")
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	//显示队列数据结构
-	queue.Range()
+	m.Range()
 
 	//取出数据
-	data, err := queue.Pop()
+	data, err := m.Pop()
 	if err != nil {
 		fmt.Println(err)
 	} else {
