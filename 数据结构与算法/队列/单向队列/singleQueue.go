@@ -7,10 +7,10 @@ import (
 
 // Queue 单向队列结构体
 type Queue struct {
-	MaxLen int      //队列最大长度
-	List   []string //模拟队列
-	Front  int      //指向队列头部 -1
-	Rear   int      //指向队列尾部 -1
+	MaxLen int           //队列最大长度
+	List   []interface{} //模拟队列
+	Front  int           //指向队列头部 -1
+	Rear   int           //指向队列尾部 -1
 }
 
 // IsEmpty 判断队列是否为空（队列尾部元素索引和队列头部元素相等)
@@ -24,7 +24,7 @@ func (q *Queue) isFull() bool {
 }
 
 // Set 向队列中添加元素
-func (q *Queue) Set(data ...string) (err error) {
+func (q *Queue) Set(data ...interface{}) (err error) {
 	//往队列中添加元素
 	for _, val := range data {
 		//每次追加循环判断  当数量不足时直至添加满队列
@@ -45,7 +45,7 @@ func (q *Queue) Set(data ...string) (err error) {
 }
 
 // Get 从队列中取出元素
-func (q *Queue) Get() (data string, err error) {
+func (q *Queue) Get() (data interface{}, err error) {
 	//队列是否为空
 	if q.IsEmpty() {
 		return "", errors.New("queue empty")
@@ -80,7 +80,7 @@ func main() {
 	//单向队列结构体实例
 	queue := &Queue{
 		MaxLen: 4,
-		List:   make([]string, 4),
+		List:   make([]interface{}, 4),
 		Front:  -1,
 		Rear:   -1,
 	}
