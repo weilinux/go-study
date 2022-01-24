@@ -103,12 +103,13 @@ func (l *Link) Add(v interface{}) {
 
 // Append 从链表尾部添加节点
 func (l *Link) Append(v interface{}) {
-	//创建新节点
-	node := CreateNode(v)
-
+	//如果链表为空则直接从头部添加
 	if l.IsEmpty() {
-		l.HeadNode = node
+		l.Add(v)
 	} else {
+		//创建新节点
+		node := CreateNode(v)
+
 		//定义变量用于存储递归子级节点
 		tempNode := l.HeadNode
 
