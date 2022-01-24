@@ -83,8 +83,8 @@ func (l *Link) Contain(v interface{}) (index int) {
 		index++
 	}
 
-	//所有节点扫描完还是不能匹配上则返回false
-	return
+	//所有节点扫描完还是不能匹配上则返回-1
+	return -1
 }
 
 // Add 从链表的头部添加节点
