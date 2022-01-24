@@ -220,55 +220,37 @@ func (l *Link) ShowList() {
 		//定义变量用于存储递归子级节点
 		tempNode := l.HeadNode
 
-		//默认索引位为0
-		index := 0
-
 		//循环子级节点
 		fmt.Println("原数据-------")
-		for tempNode != nil {
+		for index := 0; tempNode != nil; index++ {
 			fmt.Printf("该节点位置：%d 值：%v\n", index, tempNode)
 
 			//取出该节点的子级节点
 			tempNode = tempNode.NextNode
-
-			//索引前进一位
-			index++
 		}
 
 		//定义变量用于存储递归子级节点
 		tempNode = l.HeadNode
 
-		//默认索引位为0
-		index = 0
-
 		//循环子级节点
 		fmt.Println("子级节点-------")
-		for tempNode != nil {
+		for index := 0; tempNode != nil; index++ {
 			fmt.Printf("该节点位置：%d 值：%v\n", index, tempNode.Data)
 
 			//取出该节点的子级节点
 			tempNode = tempNode.NextNode
-
-			//索引前进一位
-			index++
 		}
 
 		//定义变量用于存储递归父级节点
 		tempNode = l.TailNode
 
-		//默认索引位为0
-		index = 0
-
 		//循环父级节点
 		fmt.Println("父级节点-------")
-		for tempNode != nil {
+		for index := 0; tempNode != nil; index++ {
 			fmt.Printf("该节点位置：%d 值：%v\n", index, tempNode.Data)
 
 			//取出该节点的父级节点
 			tempNode = tempNode.PreNote
-
-			//索引前进一位
-			index++
 		}
 	} else {
 		fmt.Printf("link empty")
