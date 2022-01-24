@@ -198,7 +198,7 @@ func (l *Link) RemoveAtIndex(index int) (err error) {
 		err = errors.New("超出链表长度")
 		return
 	} else {
-		//循环位移至指定位置节点前一位，并且该节点的子节点不可能为nil (改节点的子节点指向要删除的节点)
+		//循环位移至指定位置节点前一位，并且该节点的子节点不可能为nil (该节点的子节点指向要删除的节点)
 		for i := 0; i != index && tempNode.NextNode != nil; i++ {
 			//取出该节点的子级节点
 			tempNode = tempNode.NextNode
