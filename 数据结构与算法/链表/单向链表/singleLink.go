@@ -128,7 +128,8 @@ func (l *Link) Insert(index int, v interface{}) {
 	//如果索引小于0则从头部添加
 	if index < 0 {
 		l.Add(v)
-	} else if index > l.Length() { //如果索引大于链表长度则从尾部添加
+	} else if index > l.Length() {
+		//如果索引大于链表长度则从尾部添加
 		l.Append(v)
 	} else {
 		//定义变量用于存储递归子级节点
