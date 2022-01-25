@@ -209,6 +209,12 @@ func (l *Link) RemoveAtData(v interface{}) {
 
 			//如果该节点指向的子级节点的值等于指定值
 			if tempNode.NextNode.Data == v {
+				//如果链表尾部节点等于指定节点
+				if l.TailNode == tempNode {
+					//将链表尾部节点指向该节点的父级节点
+					l.TailNode = tempNode.PreNote
+				}
+
 				//1.将该节点的子级节点指向该节点的子级节点的子级节点
 				tempNode.NextNode = tempNode.NextNode.NextNode
 				//2.将该节点的子级节点的父级节点指向该节点
@@ -242,6 +248,12 @@ func (l *Link) RemoveAtIndex(index int) (err error) {
 		for i := 0; i != index && tempNode.NextNode != nil; i++ {
 			//取出该节点的子级节点
 			tempNode = tempNode.NextNode
+		}
+
+		//如果链表尾部节点等于指定节点
+		if l.TailNode == tempNode {
+			//将链表尾部节点指向该节点的父级节点
+			l.TailNode = tempNode.PreNote
 		}
 
 		//1.将该节点的子级节点的父级节点指向该节点的父级节点
