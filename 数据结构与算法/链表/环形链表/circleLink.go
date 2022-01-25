@@ -256,6 +256,12 @@ func (l *Link) RemoveAtIndex(index int) (err error) {
 			l.TailNode = tempNode.PreNote
 		}
 
+		//如果链表头部节点等于指定节点
+		if l.HeadNode == tempNode {
+			//将链表头部节点指向该节点的子级节点
+			l.HeadNode = tempNode.NextNode
+		}
+
 		//1.将该节点的子级节点的父级节点指向该节点的父级节点
 		tempNode.NextNode.PreNote = tempNode.PreNote
 		//2.将该节点的父级节点的子级节点指向该节点的子级节点
