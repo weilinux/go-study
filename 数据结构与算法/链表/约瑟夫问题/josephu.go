@@ -177,15 +177,14 @@ func (l *Link) Calculation(outNum int) {
 
 		//如果出队顺序(多维)容量为0或者容量已经大于当前切片长度时则追加长度
 		if cap(manyQueue) == 0 || circleNum > len(manyQueue) {
-			manyQueue2 := append(manyQueue, []int{})
-			manyQueue = manyQueue2
+			manyQueue = append(manyQueue, []int{})
 		}
 
 		//保存出队顺序(单维)
 		singleQueue = append(singleQueue, tempNode.No)
 
 		//保存出队顺序，根据循环圈数和出队序号(多维)
-		manyQueue[circleNum-1] = append(manyQueue[circleNum-1], tempNode.No)
+		manyQueue[len(manyQueue)-1] = append(manyQueue[len(manyQueue)-1], tempNode.No)
 
 		//出队
 		l.Out(tempNode)
@@ -199,7 +198,7 @@ func (l *Link) Calculation(outNum int) {
 			singleQueue = append(singleQueue, tempNode.No)
 
 			//保存出队顺序，根据循环圈数和出队序号(多维)
-			manyQueue[circleNum-1] = append(manyQueue[circleNum-1], tempNode.No)
+			manyQueue[len(manyQueue)-1] = append(manyQueue[len(manyQueue)-1], tempNode.No)
 
 			goto complete
 		}
@@ -208,7 +207,10 @@ func (l *Link) Calculation(outNum int) {
 	//出队完成
 complete:
 	fmt.Println("出队顺序：", singleQueue)
-	fmt.Println("出队顺序：", manyQueue)
+
+	for i := 0; i <= len(manyQueue)-1; i++ {
+		fmt.Printf("出队圈数：%v 顺序：%v\n", i+1, manyQueue[i])
+	}
 }
 
 func main() {
