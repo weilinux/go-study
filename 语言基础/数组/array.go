@@ -43,7 +43,7 @@ func main() {
 
 	for i := 0; i < len(a7); i++ {
 		for j := 0; j < len(a7); j++ {
-			if a7[i] + a7[j] == 8 {
+			if a7[i]+a7[j] == 8 {
 				fmt.Printf("%v___%v\n", i, j)
 			}
 		}

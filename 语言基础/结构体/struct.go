@@ -9,20 +9,20 @@ func init() {
 
 //结构体 值
 type user struct {
-	name string //值 “”
-	age int //值 0
-	hobby2 [2] string //值 [“”, “”]
-	hobby []string //引用 nil slice切片 make开辟内存 append加长  值类型、len长度、cap容量
-	aaa map[string]string //引用 nil map
+	name   string            //值 “”
+	age    int               //值 0
+	hobby2 [2]string         //值 [“”, “”]
+	hobby  []string          //引用 nil slice切片 make开辟内存 append加长  值类型、len长度、cap容量
+	aaa    map[string]string //引用 nil map
 }
 
 type nums int
 
-func main()  {
+func main() {
 	//延迟执行
 	defer func() {
 		//捕捉异常
-		if errorMsg := recover();errorMsg != nil {
+		if errorMsg := recover(); errorMsg != nil {
 			fmt.Printf("捕捉异常信息：%v\n", errorMsg)
 		}
 	}()

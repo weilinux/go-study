@@ -65,7 +65,7 @@ func main() {
 	fmt.Println(scoreKeys)
 
 	// 按照排序后的key遍历map
-	for _,valueKey := range scoreKeys {
+	for _, valueKey := range scoreKeys {
 		fmt.Println(valueKey, scoreMap[valueKey])
 	}
 }

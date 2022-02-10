@@ -21,7 +21,7 @@ const dimension = 139.1544
 // 批量声明
 const (
 	success = 200
-	fail = 500
+	fail    = 500
 )
 
 //	如果批量声明时如果某一行没有赋值，默认值为上一行所声明的值
@@ -33,8 +33,8 @@ const (
 
 // iota声明常量 累加
 const (
-	key0 = iota	//0
-	key1		//1...
+	key0 = iota //0
+	key1        //1...
 	key2
 	key3
 	key4
@@ -62,9 +62,9 @@ func main() {
 	x, _ := foo()
 
 	fmt.Printf("name:%s", name) //%s占位符
-	fmt.Println()				//输出换行
+	fmt.Println()               //输出换行
 	fmt.Println(age)            //打印完自动换行
-	fmt.Println(isOk)             //在终端中输出要打印的内容
+	fmt.Println(isOk)           //在终端中输出要打印的内容
 	fmt.Println(inside)
 	fmt.Println(number)
 	fmt.Println(content)

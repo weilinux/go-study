@@ -5,11 +5,11 @@ import (
 	"unicode"
 )
 
-func main () {
+func main() {
 	/*
 	* 一种是 uint8 类型，或者叫 byte 型，代表了 ASCII 码的一个字符，byte 类型是 uint8 的别名
 	* 另一种是 rune 类型，代表一个 UTF-8 字符，当需要处理中文、日文或者其他复合字符时，则需要用到 rune 类型。rune 类型等价于 int32 类型。
-	*/
+	 */
 
 	//在 ASCII 码表中，A 的值是 65，使用 16 进制表示则为 41
 	var ch1 byte = 65
@@ -40,7 +40,7 @@ func main () {
 	var cheseNumber int
 	for _, value := range ch3 {
 		if unicode.Is(unicode.Han, value) {
-			cheseNumber ++
+			cheseNumber++
 		}
 	}
 	fmt.Print(cheseNumber)
