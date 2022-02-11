@@ -106,6 +106,7 @@ func main() {
 			err = os.Remove(tempFile)
 			handleErr(err)
 
+			//跳出该循环体
 			break
 		}
 
