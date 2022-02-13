@@ -12,6 +12,8 @@ var rwMutex sync.RWMutex
 var wg sync.WaitGroup
 
 func main() {
+	//模拟i/o操作
+
 	//增加WaitGroup中的子goroutine计数值
 	wg.Add(8)
 
