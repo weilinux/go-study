@@ -10,7 +10,7 @@ var ctx = context.Background()
 
 func main() {
 	//TODO 使用go-redis操作
-	//go get github.com/go-redis/redis
+	//go get -u github.com/go-redis/redis/v8
 
 	//连接redis
 	rdb := redis.NewClient(&redis.Options{
