@@ -6,6 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
+//上下文
 var ctx = context.Background()
 
 func main() {
