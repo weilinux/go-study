@@ -12,7 +12,6 @@ var ctx = context.Background()
 func main() {
 	//TODO 使用gorm操作
 	//go get -u gorm.io/gorm
-	//go get -u gorm.io/driver/sqlite
 	//go get gorm.io/driver/mysql
 
 	//连接mysql
