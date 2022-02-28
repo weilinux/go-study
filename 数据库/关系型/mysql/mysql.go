@@ -16,6 +16,7 @@ func main() {
 
 	//连接mysql
 	db, err := gorm.Open(mysql.New(mysql.Config{ //自定义驱动
+		DriverName:                "my_mysql_driver",                                                          // 自定义驱动，通过 DriverName 选项自定义 MySQL 驱动
 		DSN:                       "gorm:gorm@tcp(127.0.0.1:3306)/gorm?charset=utf8&parseTime=True&loc=Local", // DSN data source name
 		DefaultStringSize:         256,                                                                        // string 类型字段的默认长度
 		DisableDatetimePrecision:  true,                                                                       // 禁用 datetime 精度，MySQL 5.6 之前的数据库不支持
