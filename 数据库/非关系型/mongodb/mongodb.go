@@ -117,31 +117,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//创建事务session
-	session, err := client.StartSession()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	//关闭事务session
-	defer session.EndSession(ctx)
-
-	//插入一条数据
-	_, err = collection.InsertOne(ctx, "")
-	if err != nil {
-		//事务回滚
-		err := session.AbortTransaction(ctx)
-		if err != nil {
-			log.Fatal(err)
-		}
-	} else {
-		//事务提交
-		err := session.CommitTransaction(ctx)
-		if err != nil {
-			log.Fatal(err)
-		}
-	}
-
 	//CURD...
 	//插入单条
 	insertOneResult, err := collection.InsertOne(ctx, "")
