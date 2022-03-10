@@ -78,7 +78,7 @@ func main() {
 		/*city := c.PostFormArray("city")
 		c.JSON(http.StatusOK, gin.H{"city": city})*/
 
-		//获取post参数 多参数 值：string
+		//获取post参数 多参数 值：map
 		info := c.PostFormMap("info")
 		c.JSON(http.StatusOK, gin.H{"info": info})
 	})
