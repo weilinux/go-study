@@ -44,6 +44,7 @@ func main() {
 
 	// 查看内存申请和分配统计信息
 	memStats := &runtime.MemStats{}
+	// 读取到内存相关指标的含义和区别
 	runtime.ReadMemStats(memStats)
 	/*type MemStats struct {
 		// 一般统计
